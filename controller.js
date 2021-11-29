@@ -26,6 +26,15 @@ class Controller {
       resolve(newPerson);
     });
   }
+
+  async deletePerson(personId) {
+    return new Promise((resolve, _) => {
+
+      const newData = this.data.deleteData(personId)
+
+      resolve(newData);
+    });
+  }
 }
 
 module.exports = Controller;

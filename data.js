@@ -8,7 +8,14 @@ class dataConstructor {
   getData() {
     return data
   }
-}
 
+  deleteData(id) {
+    const newData = data
+    console.log(data)
+    newData.filter(person => person.id === id)
+    data = newData
+    return newData
+  }
+}
 
 module.exports = dataConstructor

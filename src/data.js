@@ -15,15 +15,15 @@ class dataConstructor {
   }
 
   deleteData(id) {
-    const newData = data
-    newData.filter(person => person.id === id)
+    const newData = data.filter(person => person.id !== id)
     data = newData
     return newData
   }
 
   updateData(newPerson, id) {
     const newData = data.map(person => {
-      if(person.id === id) return JSON.parse(newPerson)
+      const updatedPerson = {...JSON.parse(newPerson), id}
+      if(person.id === id) return updatedPerson
       return person
     })
     data = newData

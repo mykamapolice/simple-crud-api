@@ -17,4 +17,16 @@ function getReqData(req) {
     }
   });
 }
-module.exports = { getReqData };
+
+function checkId(id) {
+  const regexExp = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi;
+
+  return regexExp.test(id);
+}
+
+function checkData(data) {
+  const object = JSON.parse(data)
+  return object.hasOwnProperty('name') && object.hasOwnProperty('age') && object.hasOwnProperty('hobbies')
+}
+
+module.exports = { getReqData, checkId, checkData };

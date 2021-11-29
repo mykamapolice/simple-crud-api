@@ -9,9 +9,13 @@ class dataConstructor {
     return data
   }
 
+  getDataById(id) {
+    const person = data.find(per => per.id === id)
+    return person
+  }
+
   deleteData(id) {
     const newData = data
-    console.log(data)
     newData.filter(person => person.id === id)
     data = newData
     return newData

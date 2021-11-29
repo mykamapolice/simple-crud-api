@@ -23,8 +23,24 @@ const server = http.createServer(async (req, res) => {
 
     let person = await new Controller().deletePerson(id);
 
-    res.writeHead(204, { "Content-Type": "application/json" });
+    res.writeHead(200, { "Content-Type": "application/json" });
     res.end('Person was deleted');
+
+  } else if (req.url.includes(`/person/`) &&req.method === "GET") {
+
+    const url = req.url
+    const id = url.id = url.split("/")[2]
+
+    if(!id) {
+      res.writeHead(401, { "Content-Type": "application/json" });
+      res.end('Please enter id');
+    }
+
+    let person = await new Controller().getPersonsById(id);
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+
+    res.end(JSON.stringify(person));
 
   } else if (req.url === "/person" && req.method === "POST") {
 

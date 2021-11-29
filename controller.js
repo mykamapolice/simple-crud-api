@@ -13,6 +13,12 @@ class Controller {
     })
   }
 
+  async getPersonsById(id) {
+    return new Promise((resolve, reject) => {
+      return resolve(this.data.getDataById(id))
+    })
+  }
+
   async createPerson(person) {
     return new Promise((resolve, _) => {
       let newPerson = {

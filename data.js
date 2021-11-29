@@ -20,6 +20,15 @@ class dataConstructor {
     data = newData
     return newData
   }
+
+  updateData(newPerson, id) {
+    const newData = data.map(person => {
+      if(person.id === id) return JSON.parse(newPerson)
+      return person
+    })
+    data = newData
+    return newPerson
+  }
 }
 
 module.exports = dataConstructor

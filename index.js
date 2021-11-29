@@ -26,6 +26,24 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end('Person was deleted');
 
+  } else if (req.url.includes(`/person/`) &&req.method === "PUT") {
+
+    let person_data = await getReqData(req);
+
+    const url = req.url
+    const id = url.id = url.split("/")[2]
+
+    if(!id) {
+      res.writeHead(401, { "Content-Type": "application/json" });
+      res.end('Please enter id');
+    }
+
+
+    let updatedPerson = await new Controller().udpatePerson(person_data, id);
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(updatedPerson);
+
   } else if (req.url.includes(`/person/`) &&req.method === "GET") {
 
     const url = req.url

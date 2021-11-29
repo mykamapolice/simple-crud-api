@@ -13,6 +13,12 @@ class Controller {
     })
   }
 
+  async udpatePerson(person, id) {
+    return new Promise((resolve, reject) => {
+      return resolve(this.data.updateData(person, id))
+    })
+  }
+
   async getPersonsById(id) {
     return new Promise((resolve, reject) => {
       return resolve(this.data.getDataById(id))

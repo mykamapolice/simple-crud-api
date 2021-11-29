@@ -1,0 +1,30 @@
+{
+  "name": "simple-crud-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start:dev": "nodemon src/index.js",
+    "start:prod": "rm -rf dist && webpack --mode production && node dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mykamapolice/simple-crud-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mykamapolice/simple-crud-api/issues"
+  },
+  "homepage": "https://github.com/mykamapolice/simple-crud-api#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.15",
+    "uuidv4": "^6.2.12"
+  },
+  "devDependencies": {
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
+  }
+}
